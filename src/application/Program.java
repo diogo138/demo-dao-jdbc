@@ -1,11 +1,14 @@
 package application;
-import model.entities.Livros;
+import java.util.Date;
+
+import model.entities.StatusUsuario;
+import model.entities.Usuario;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Livros livro = new Livros("Java", "Deitel", "Programação", 10, 2021, "DISPONIVEL");
-		System.out.println(livro);
+		Usuario usuario = new Usuario("Maria", "maria@gmail.com", "123", new Date(), StatusUsuario.ativo);
+		System.out.println(usuario);
 	}
 
 }
