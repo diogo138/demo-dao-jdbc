@@ -63,6 +63,15 @@ public class Usuario implements Serializable {
 	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
+	
+	public StatusUsuario getStatus() {
+		return status;
+	}
+	
+	public void setStatus(StatusUsuario status) {
+        this.status = status;
+    }
+	
 
 	@Override
 	public int hashCode() {
@@ -83,6 +92,8 @@ public class Usuario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + "]";
+	    return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email 
+	        + ", senha=" + senha + ", dataCadastro=" + dataCadastro 
+	        + ", status=" + status + "]";
 	}
 }

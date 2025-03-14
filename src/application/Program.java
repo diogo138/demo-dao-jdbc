@@ -1,21 +1,25 @@
 package application;
-import java.util.Date;
+import java.io.IOException;
+import java.sql.Connection;
 
-import model.entities.Emprestimos;
-import model.entities.Livros;
-import model.entities.StatusEmprestimos;
-import model.entities.StatusUsuario;
-import model.entities.Usuario;
+import controller.UsuarioController;
+import db.DB;
 
 public class Program {
 
-	public static void main(String[] args) {
-		Usuario usuario = new Usuario("Maria", "maria@gmail.com", "123", new Date(), StatusUsuario.ativo);
+	public static void main(String[] args) throws IOException {
+//		UsuarioDAO usuarioDAO = DAOFactory.createUsuarioDAO();
+//		Usuario usuario = new Usuario("Joao", "joao@gmail.com", "123456", new Date(), StatusUsuario.ativo);
+//		usuarioDAO.insert(usuario);
+//		Usuario usuarioId = usuarioDAO.findById(1);
+//		usuarioDAO.deleteById(usuarioId.getId());
+//		usuarioId.setNome("João");
+//	    usuarioDAO.update(usuarioId);
+//		usuarioDAO.findAll().forEach(System.out::println);
 		
-		Livros livro = new Livros("Clean Code", "Robert C. Martin", "TI", 40, 2008, "disponivel");
-		
-		Emprestimos emprestimo = new Emprestimos(usuario, livro, new Date(), null, StatusEmprestimos.pendente);
-		System.out.println(emprestimo);
+		Connection conn = DB.getConnection();
+		UsuarioController controller = new UsuarioController(conn);
+		controller.startServer();
 	}
 
 }
